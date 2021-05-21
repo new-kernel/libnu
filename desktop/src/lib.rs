@@ -10,10 +10,6 @@ pub struct Desktop {
 }
 
 impl Desktop {
-    pub fn new(&mut self) -> Desktop {
-        return Self;
-    }
-
     pub fn init(&mut self, mut gop: GraphicsOutput, desktop_colr: BltPixel) {
         let color = BltOp::VideoFill {
             color: (desktop_colr),

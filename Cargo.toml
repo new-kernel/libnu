@@ -7,7 +7,9 @@ edition = "2018"
 [workspace]
 members = [
     "desktop/",
+    "ktypes/",
 ]
 
 [dependencies]
 desktop = { path = "desktop/" }
+ktypes = { path = "ktypes/" }
