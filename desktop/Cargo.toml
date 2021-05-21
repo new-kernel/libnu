@@ -5,6 +5,4 @@ authors = ["Nathan McMillan <nathanmcmillan54@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-embedded-graphics = "0.6.2"
 uefi = "0.8.1"
-uefi-graphics = "0.2.0"

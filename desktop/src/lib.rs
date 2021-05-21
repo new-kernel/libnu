@@ -1,13 +1,7 @@
 #![no_std]
 
-extern crate embedded_graphics;
-use embedded_graphics::{drawable::Pixel, pixelcolor::*, DrawTarget};
-
 extern crate uefi;
-use uefi::proto::console::gop::{FrameBuffer, ModeInfo};
-
-extern crate uefi_graphics;
-use uefi_graphics::UefiDisplay;
+use uefi::proto::console::gop::{BltOp, BltPixel, GraphicsOutput};
 
 pub struct Desktop {
     pub height: i32,
@@ -16,11 +10,17 @@ pub struct Desktop {
 }
 
 impl Desktop {
-    pub fn new() -> Desktop {
+    pub fn new(&mut self) -> Desktop {
         return Self;
     }
 
-    pub fn init(modeinfo: ModeInfo, framebuffer: FrameBuffer) {
-        let mut display = UefiDisplay::new(*modeinfo, *framebuffer);
+    pub fn init(&mut self, mut gop: GraphicsOutput, desktop_colr: BltPixel) {
+        let color = BltOp::VideoFill {
+            color: (desktop_colr),
+            dest: (0, 0),
+            dims: (1024, 768)
+        };
+
+        gop.blt(color).expect("Couldn't fill screen");
     }
 }
