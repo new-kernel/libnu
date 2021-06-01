@@ -1,8 +1,8 @@
 [package]
-name = "ktypes"
+name = "mem"
 version = "0.1.0"
 authors = ["Nathan McMillan <nathanmcmillan54@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-ctypes = { git = "https://github.com/new-kernel/novusk", path = "include/ctypes/" }
+rlibc = "1.0.0"

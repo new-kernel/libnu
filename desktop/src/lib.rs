@@ -1,22 +1,28 @@
 #![no_std]
 
 extern crate uefi;
-use uefi::proto::console::gop::{BltOp, BltPixel, GraphicsOutput};
+
+use uefi::proto::console::gop::{GraphicsOutput, BltOp, BltPixel};
+
+extern "C" { pub(crate) fn gop_reinit() -> &'static mut GraphicsOutput<'static>; }
 
 pub struct Desktop {
-    pub height: i32,
-    pub width: i32,
-    pub color: u8,
+    pub r: u8,
+    pub g: u8,
+    pub b: u8,
+    pub width: usize,
+    pub hight: usize,
 }
 
 impl Desktop {
-    pub fn init(&mut self, mut gop: GraphicsOutput, desktop_colr: BltPixel) {
-        let color = BltOp::VideoFill {
-            color: (desktop_colr),
+    pub fn init(&mut self) {
+        let gop = unsafe { gop_reinit() };
+        let op = BltOp::VideoFill {
+            color: BltPixel::new(self.r, self.g, self.b),
             dest: (0, 0),
-            dims: (1024, 768)
+            dims: (self.width, self.hight)
         };
 
-        gop.blt(color).expect("Couldn't fill screen");
+        gop.blt(op).expect("Couldn't initialize desktop");
     }
 }
