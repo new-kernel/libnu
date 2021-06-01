@@ -9,7 +9,6 @@ members = [
     "desktop/",
     "io/",
     "ktypes/",
-    "mem/",
 ]
 
 [dependencies]
@@ -17,7 +16,6 @@ members = [
 desktop = { path = "desktop/" }
 io = { path = "io/" }
 ktypes = { path = "ktypes/" }
-mem = { path = "mem/" }
 # Dependencies
 rlibc = "1.0.0"
 uefi-graphics = { git = "https://github.com/NathanMcMillan54/uefi-graphics" }
