@@ -57,6 +57,6 @@ macro_rules! print {
 /// println!("No new line needed!");
 #[macro_export]
 macro_rules! println {
-    () => ($crate::text::output::print!("\n"));
-    ($($arg:tt)*) => {$crate::text::output::_print(format_args!($($arg)*))};
+    () => ($crate::io::text::output::print!("\n"));
+    ($($arg:tt)*) => {$crate::io::text::output::_print(format_args!($($arg)*))};
 }
