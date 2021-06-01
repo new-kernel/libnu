@@ -10,8 +10,9 @@
 //!
 //! uefi has some structs an enum types re-exported for file I/O in io/io.fs
 //!
-//! ctypes is re-exported from Novusk for make C-equivalent variables and values. It is found it
-//! ktypes which is used as "types".
+//! ctypes (https://github.com/new-kernel/novusk, include/ctypes/) should be used but isn't
+//! because crates.io doesn't allow git dependencies. It's recommended that you use it for
+//! C-equivalent code.
 
 #![no_std]
 

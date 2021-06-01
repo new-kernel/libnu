@@ -9,7 +9,6 @@ repository = "https://github.com/new-kernel/libnu/"
 license = "MIT"
 
 [dependencies]
-ctypes = { git = "https://github.com/new-kernel/novusk", path = "include/ctypes/" }
 uefi = "0.8.1"
 
 [dependencies.novusk_syscalls]
