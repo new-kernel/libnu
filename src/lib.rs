@@ -4,23 +4,21 @@
 //!
 //! ### Re-export usages
 //!
-//! uefi_graphics is re-exported as "graphics" for making user interfaces and displaying
-//! images/shapes.
+//! uefi_graphics (https://github.com/NathanMcMillan54/uefi_graphics/) should be used but isn't
+//! because crates.io doesn't allow git dependencies. It's recommended that is is imported as
+//! "graphics" in your OS.
 //!
-//! uefi has some structs an enum types re-exported for file I/O in io/fs
+//! uefi has some structs an enum types re-exported for file I/O in io/io.fs
 //!
 //! ctypes is re-exported from Novusk for make C-equivalent variables and values. It is found it
 //! ktypes which is used as "types".
 
 #![no_std]
 
-pub extern crate desktop;
+pub mod desktop;
 
 #[macro_use]
-pub extern crate io;
+pub mod io;
 
-extern crate ktypes;
+pub mod ktypes;
 pub use ktypes as types;
-
-extern crate uefi_graphics;
-pub use uefi_graphics as graphics;

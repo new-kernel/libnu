@@ -1,6 +1,3 @@
-#![no_std]
-
-extern crate uefi;
 use uefi::proto::console::gop::{BltOp, BltPixel, GraphicsOutput};
 
 extern "C" { pub(crate) fn gop_reinit() -> &'static mut GraphicsOutput<'static>; }

@@ -1,5 +1,3 @@
-#![no_std]
-
 pub extern crate ctypes;
 
 /// ApplicationType is a enum type used for determining what process Novusk's userspace will run. An
