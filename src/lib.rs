@@ -5,8 +5,7 @@
 //! ### Re-export usages
 //!
 //! uefi_graphics (https://github.com/NathanMcMillan54/uefi_graphics/) should be used but isn't
-//! because crates.io doesn't allow git dependencies. It's recommended that is is imported as
-//! "graphics" in your OS.
+//! because crates.io doesn't allow git dependencies.
 //!
 //! uefi has some structs an enum types re-exported for file I/O in io/io.fs
 //!
@@ -17,6 +16,7 @@
 #![no_std]
 
 pub mod desktop;
+pub mod graphics;
 
 #[macro_use]
 pub mod io;

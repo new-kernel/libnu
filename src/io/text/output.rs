@@ -44,10 +44,10 @@ pub fn _print(args: Arguments) -> Result {
 ///
 /// print!("ya");
 ///
-/// print!("y!");
+/// print!("y!\n");
 #[macro_export]
 macro_rules! print {
-    ($($arg:tt)*) => {$crate::text::output::_print(format_args!($($arg)*))};
+    ($($arg:tt)*) => {$crate::io::text::output::_print(format_args!($($arg)*))};
 }
 
 /// println! is also just like the Rust stdlib println!, it prints formatted text and a new line.
